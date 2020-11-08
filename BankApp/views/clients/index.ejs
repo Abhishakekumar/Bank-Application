@@ -1,0 +1,31 @@
+<% include ../partials/header %> 
+
+ <div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome To YesBank!</h1>
+            <p>These are all your clients in your system</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="/clients/new">Add New Client</a>
+            </p>
+        </div>
+    </header>
+     
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% clients.forEach(function(client){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <div class="caption">
+                       <h4><%= client.name %></h4>
+                       <p>Balance: <%= client.money %></p>
+                    </div>
+                    <p>
+                       <a href="/clients/<%= client._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
